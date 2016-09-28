@@ -43,6 +43,9 @@
 #include "sys/wait.h"
 #include "sys/stat.h"
 #include "stdio.h"
+
+#include "subprocess.h"
+
 typedef int filedes_t;
 
 /* return 1 if the named directory exists and is a directory */
@@ -1308,7 +1311,7 @@ static const luaL_Reg subprocess[] = {
     {NULL, NULL}
 };
 
-LUALIB_API int luaopen_subprocess(lua_State *L)
+int luaopen_subprocess(lua_State *L)
 {
     /* create environment table for C functions */
     lua_newtable(L);
